@@ -1,0 +1,109 @@
+<?php
+session_start();
+include'dbh2.php';
+
+$UserID=$_SESSION['UserID'];
+$_SESSION['UserID']=$UserID;
+   
+$query = "SELECT CategoryID from category";
+$search_result = filterTable($query);
+
+    
+
+
+function filterTable($query)
+{
+    $connect = mysqli_connect("localhost", "root", "");
+	$connect_db=mysqli_select_db($connect,"sunrise");
+    $filter_Result = mysqli_query($connect, $query);
+    return $filter_Result;
+}
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+	
+		<style>
+			ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+				background-color: #333;
+			}
+
+			li {
+				float: left;
+			}
+
+			li a {
+				display: block;
+				color: white;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+			}
+
+			li a:hover {
+				background-color: #111;
+			}
+			section
+			{
+	
+				width: 400px;
+			}
+			input[type=text], select 
+			{
+				width: 100%;
+				padding: 12px 20px;
+				margin: 8px 0;
+				display: inline-block;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				box-sizing: border-box;
+            }
+
+			body { 
+				background-color: #d2b29b;
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				background-position: center; 
+				background-height:50%;
+				
+			}
+		</style>
+	</head>
+<body>
+
+			<ul style="font-family:Comic Sans MS">
+			  <li><a class="active" href="bookworm.html">Home</a></li>
+			  <li><a href="profileSunrise.php">Profile</a></li>
+			  <li><a href="allProducts.php">Products</a></li>
+			  <li><a href="allProducts.php">Review</a></li>
+			  <li><a href="Contact.html">Contact</a></li>
+              <li><a href="logoutSunrise.php">Log Out</a></li>
+  
+			</ul>
+		<nav>
+		
+			<ul>
+			
+					<li><a href="Category.php?CategoryID=3" >PABX</a></li>
+					<li><a href="Category.php?CategoryID=4" >IP Phone</a></li>
+					<li><a href="Category.php?CategoryID=5" >Intercom</a></li>
+					<li><a href="Category.php?CategoryID=6" >FAX</a></li>
+					<li><a href="Category.php?CategoryID=7" >Telephone Set</a></li>
+					<li><a href="Category.php?CategoryID=8" >CC Camera</a></li>
+					
+					
+			</ul>
+			
+		</nav>
+		<section>
+			<form action="SearchProduct.php"  method="post">
+				<input type="text"  name="search" placeholder="Search..">
+			</form>
+	    </section>
+
+</body>
+</html>

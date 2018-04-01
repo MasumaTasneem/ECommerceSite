@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+		<style>
+			ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+				background-color: #333;
+			}
+
+			li {
+				float: left;
+			}
+
+			li a {
+				display: block;
+				color: white;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+			}
+
+			li a:hover {
+				background-color: #111;
+			}
+			section
+			{
+	
+				width: 400px;
+			}
+			input[type=text], select 
+			{
+				width: 550px;
+				padding: 12px 20px;
+				margin: 8px 0;
+				display: inline-block;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				box-sizing: border-box;
+            }
+			button[type=submit] {
+			width: 100px;
+			background-color: black;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+			body { 
+				background-color: #d2b29b;
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				background-position: center; 
+				background-height:50%;
+				
+			}
+		</style>
+	</head>
+<body>
+        
+			<ul style="font-family:Comic Sans MS">
+			<h3 style="color:white; font-family:Comic Sans MS; font-size:20px">ADMIN PANEL</h3>
+			  <li><a class="active" href="sunrise.html">Home</a></li>
+			  <li><a href="profileSunrise.html">Profile</a></li>
+			  <li><a href="allProducts.php">Discussion</a></li>
+			  <li><a href="#mycart">MyCart</a></li>
+			  <li><a href="#contact">Contact</a></li>
+			  <li><a href="PurchaseList.php">Purchase List</a></li>
+			  <li><a href="BuyerList.php">Buyer List</a></li>
+			  <li><a href="ProductList.php">Product List</a></li>
+              <li><a href="logoutSunrise.php">Log Out</a></li>
+  
+			</ul>
+		<nav>
+			<ul>
+					<li><a href="Category.php?CategoryID=3" >PABX</a></li>
+					<li><a href="Category.php?CategoryID=4" >IP Phone</a></li>
+					<li><a href="Category.php?CategoryID=5" >Intercom</a></li>
+					<li><a href="Category.php?CategoryID=6" >FAX</a></li>
+					<li><a href="Category.php?CategoryID=7" >Telephone Set</a></li>
+					<li><a href="Category.php?CategoryID=8" >CC Camera</a></li>
+					
+					
+			</ul>
+		</nav>
+		<section>
+			<form action="SearchProduct.php"  method="post">
+				<input type="text"  name="search" placeholder="Search..">
+			</form>
+	    </section>
+		<h4>Insert new Product Information</h4>
+		<div class="topright">
+		<form action="admin.php" method="POST">
+			<input type="text" name="ProductName" placeholder="ProductName"><br>
+			<input type="text" name="CategoryName" placeholder="Category name"><br>
+			<input type="text" name="Specification" placeholder="Specifications.."><br>
+			<input type="text" name="Options" placeholder="Options.."><br>
+			<input type="text" name="Quantity" placeholder="Quantity"><br>
+			<input type="text" name="UnitPrice" placeholder="Unit Price"><br>
+			
+			<button type="submit"> Enter</button>
+		</form>
+		</div>
+
+</body>
+</html>

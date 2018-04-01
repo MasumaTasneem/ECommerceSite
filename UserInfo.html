@@ -1,0 +1,184 @@
+<?php
+include 'dbh2.php';
+SESSION_START();
+$UserName=$_GET['UserName'];
+$_SESSION['UserName']=$UserName;
+$PaymentMethod=$_GET['PaymentMethod'];
+	$sql="SELECT PaymentID FROM payment WHERE PaymentMethod='$PaymentMethod'";
+	$query=mysqli_query($conn,$sql);
+	$row=mysqli_fetch_array($query);
+	$PaymentID=$row['PaymentID'];
+	$_SESSION['PaymentID']=$PaymentID;
+	echo $PaymentID;
+ 
+?>
+
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<style>
+	header{
+		   
+	
+		   color: white;
+		   text-align:left;
+		   font-family:Comic Sans MS;
+		   font-size:30px;
+		   
+			
+			}
+		.topright {
+    position: absolute;
+    top: 160px;
+    right: 550px;
+    font-size: 18px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+.dropdown {
+    float: right;
+    position: relative;
+    display: inline-block;
+    
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 0;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+input[type=text], select {
+    width: 400px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+}
+button[type=submit] {
+			width: 60%;
+			background-color: black;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+body { 
+    background-image: url('book4.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+	background-height:50%;
+	text-align:center;
+	text-bottom:500px;
+	
+}
+
+
+	</style>
+	<meta charset="UTF-8">
+		<title>
+			Sunrise Electronics Industries
+		</title>
+		<link rel="stylesheet"  type="text/css" href="style.css">
+	</head>
+	
+	<body >
+	<header>
+			<div class='w3-container top'>
+			<a class='bookworm-logo' >Sunrise Electronics Industries</a><br>
+			
+		
+			
+		</header>
+		<ul style="font-family:Comic Sans MS">
+  <li><a class="active" href="sunrise.html">Home</a></li>
+  <li><a href="allProducts.php">Review</a></li>
+  <li><a href="allProducts.php">Products</a></li>
+  <li><a href="showcart.php">MyCart</a></li>
+  <li><a href="Contact.html">Contact</a></li>
+  
+</ul>
+				
+	
+	<h3 style="font-family:Comic Sans MS; font-size:20px;color:black">Please insert your informations for buying the products in your cart.</h3>
+		<div class="topright">
+	
+		<form action="UserInfo.php" method="POST">
+			<input type="text" name="UserAddress" placeholder="Address"><br>
+			<input type="text" name="PhoneNumber" placeholder="Phone Number"><br>
+			<input type="text" name="EmailAddress" placeholder="E-mail"><br>
+		
+
+			<!--button type="submit" action="UserInfo.php"><a href="UserInfo.php?PaymentID=1">Cash on Delivery</a></button>
+			<!--button type="submit" action="UserInfo.php"><a href="UserInfo.php?PaymentID=2">Bkash</a></button!-->
+			
+			<button type="submit">DONE</button>
+		
+	
+		</form>
+		
+		
+		</div>
+
+	
+	
+
+	</body>
+
+</html>
+
